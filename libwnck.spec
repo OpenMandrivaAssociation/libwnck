@@ -8,6 +8,7 @@ Name: libwnck
 Version: 2.18.0
 Release: %mkrel 1
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
+Patch0:	libwnck-crash_dragging_small_windows.patch
 
 License: LGPL
 URL: http://www.gnome.org/
@@ -54,6 +55,7 @@ for writing pagers and taskslists and stuff.
 
 %prep
 %setup -q
+%patch0 -p0 -b .smallwin
 
 %build
 
