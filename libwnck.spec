@@ -1,11 +1,11 @@
 %define api_version 1
-%define lib_major 18
+%define lib_major 22
 %define startup_notification_version 0.4
 %define lib_name %mklibname wnck- %{api_version} %{lib_major}
 
 Summary: Libwnck is Window Navigator Construction Kit
 Name: libwnck
-Version: 2.18.2
+Version: 2.19.3.1
 Release: %mkrel 1
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 License: LGPL
@@ -79,7 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %{lib_name}
 %defattr(-,root,root)
-%{_libdir}/*.so.*
+%{_libdir}/libwnck-%{api_version}.so.%{lib_major}*
 
 %files -n %{lib_name}-devel
 %defattr(-,root,root)
