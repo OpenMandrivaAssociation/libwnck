@@ -44,8 +44,9 @@ Provides:	%{name}-%{api_version}-devel = %{version}-%{release}
 Requires:	%{lib_name} = %{version}
 Requires:	gtk+2-devel >= 2.1
 Requires:	startup-notification-devel >= %{startup_notification_version}
-Conflicts:	%{_lib}wnck-1_4-devel
-Conflicts:	%{_lib}wnck-1_16-devel
+Conflicts:	%mklibname -d wnck-1_ 4
+Conflicts:	%mklibname -d wnck-1_ 16
+Conflicts:	%mklibname -d wnck-1_ 18
 
 %description -n %{lib_name}-devel
 libwnck is Window Navigator Construction Kit, i.e. a library to use
