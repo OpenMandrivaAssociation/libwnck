@@ -12,7 +12,6 @@ Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz
 License: LGPL
 URL: http://www.gnome.org/
 Group: System/Libraries
-BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires: gtk+2-devel >= 2.1
 BuildRequires: startup-notification-devel >= %{startup_notification_version}
 BuildRequires: perl-XML-Parser
