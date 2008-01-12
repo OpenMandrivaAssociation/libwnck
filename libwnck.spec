@@ -7,7 +7,7 @@
 Summary: Libwnck is Window Navigator Construction Kit
 Name: libwnck
 Version: 2.21.2.1
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 License: LGPL
 URL: http://www.gnome.org/
@@ -78,7 +78,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(-,root,root)
-%doc README ChangeLog AUTHORS
+%doc README AUTHORS
 %_bindir/wnckprop
 
 %files -n %{libname}
@@ -87,7 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %{libnamedev}
 %defattr(-,root,root)
-%doc %{_datadir}/gtk-doc/html/libwnck
+%doc ChangeLog %{_datadir}/gtk-doc/html/libwnck
 %{_includedir}/*
 %{_libdir}/*.so
 %attr(644,root,root) %{_libdir}/*.la
