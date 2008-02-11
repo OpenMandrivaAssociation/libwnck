@@ -68,7 +68,7 @@ for writing pagers and taskslists and stuff.
 rm -rf $RPM_BUILD_ROOT
 
 %makeinstall_std
-
+rm -rf %buildroot%_datadir/locale/{io,be@latin,bn_IN,si,uz@cyrillic}
 %{find_lang} %{name}
 
 %clean
