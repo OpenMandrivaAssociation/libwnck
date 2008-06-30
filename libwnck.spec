@@ -18,6 +18,7 @@ BuildRequires: gtk+2-devel >= 2.1
 BuildRequires: startup-notification-devel >= %{startup_notification_version}
 BuildRequires: gtk-doc
 BuildRequires: intltool
+BuildRequires: gnome-common
 
 #ugly stuff to update old libwnck
 Obsoletes: %{name}-1_1
