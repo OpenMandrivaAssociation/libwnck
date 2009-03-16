@@ -6,8 +6,8 @@
 
 Summary: Libwnck is Window Navigator Construction Kit
 Name: libwnck
-Version: 2.25.91
-Release: %mkrel 2
+Version: 2.26.0
+Release: %mkrel 1
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Patch: libwnck-2.25.91-linking.patch
 License: LGPLv2+
@@ -60,6 +60,7 @@ for writing pagers and taskslists and stuff.
 %prep
 %setup -q
 %patch -p1
+gtkdocize
 autoreconf -fi
 
 %build
