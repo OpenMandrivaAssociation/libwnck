@@ -60,8 +60,7 @@ for writing pagers and taskslists and stuff.
 %prep
 %setup -q
 %patch -p1
-gtkdocize
-autoreconf -fi
+autoconf
 
 %build
 
