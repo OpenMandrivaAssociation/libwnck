@@ -7,7 +7,7 @@
 Summary: Libwnck is Window Navigator Construction Kit
 Name: libwnck
 Version: 2.30.7
-Release: %mkrel 3
+Release: %mkrel 4
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
 Patch: libwnck-2.27.4-linking.patch
 License: LGPLv2+
@@ -78,15 +78,10 @@ rm -rf %{buildroot}
 rm -rf %buildroot%_datadir/locale/{io,be@latin,bn_IN,si,uz@cyrillic}
 %{find_lang} %{name}
 
+rm -f %buildroot%{_libdir}/*.la
+
 %clean
 rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post -p /sbin/ldconfig -n %{libname}
-%endif
-%if %mdkversion < 200900
-%postun -p /sbin/ldconfig -n %{libname}
-%endif
 
 %files -f %{name}.lang
 %defattr(-,root,root)
@@ -105,7 +100,6 @@ rm -rf %{buildroot}
 %doc %_datadir/gtk-doc/html/libwnck
 %{_includedir}/*
 %{_libdir}/*.so
-%attr(644,root,root) %{_libdir}/*.la
 %{_libdir}/*.a
 %{_libdir}/pkgconfig/*
 %_datadir/gir-1.0/Wnck-1.0.gir
