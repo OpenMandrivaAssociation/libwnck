@@ -13,7 +13,7 @@ Patch0: libwnck-2.27.4-linking.patch
 License: LGPLv2+
 URL: http://www.gnome.org/
 Group: System/Libraries
-BuildRequires: gtk+2-devel >= 2.19.7
+BuildRequires: gtk+3-devel
 BuildRequires: startup-notification-devel >= %{startup_notification_version}
 BuildRequires: gobject-introspection-devel
 BuildRequires: gtk-doc
