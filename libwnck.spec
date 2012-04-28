@@ -1,29 +1,24 @@
-%define api_version 1
-%define lib_major 22
-%define startup_notification_version 0.4
-%define libname %mklibname wnck- %{api_version} %{lib_major}
-%define libnamedev %mklibname -d wnck- %{api_version}
+%define api 1
+%define major 22
+%define libname %mklibname wnck- %{api} %{major}
+%define develname %mklibname -d wnck- %{api}
 
 Summary: Libwnck is Window Navigator Construction Kit
 Name: libwnck
 Version: 2.30.7
-Release: %mkrel 4
-Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
-Patch: libwnck-2.27.4-linking.patch
+Release: 5
 License: LGPLv2+
 URL: http://www.gnome.org/
 Group: System/Libraries
-BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
-BuildRequires: gtk+2-devel >= 2.19.7
-BuildRequires: startup-notification-devel >= %{startup_notification_version}
-BuildRequires: gobject-introspection-devel
-BuildRequires: gtk-doc
+Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
+Patch: libwnck-2.27.4-linking.patch
+
 BuildRequires: intltool
 BuildRequires: gnome-common
-
-#ugly stuff to update old libwnck
-Obsoletes: %{name}-1_1
-Provides: %{name}-1_1
+BuildRequires: gtk-doc
+BuildRequires: pkgconfig(gobject-introspection-1.0)
+BuildRequires: pkgconfig(gtk+-2.0)
+BuildRequires: pkgconfig(libstartup-notification-1.0)
 
 %description
 libwnck is Window Navigator Construction Kit, i.e. a library to use
@@ -32,31 +27,23 @@ for writing pagers and taskslists and stuff.
 %package -n %{libname}
 Summary:	%{summary}
 Group:		%{group}
-
-Provides:	%{name}-%{api_version} = %{version}-%{release}
+Provides:	%{name}-%{api} = %{version}-%{release}
 Requires:	%{name} >= %{version}
-Requires:   libstartup-notification-1 >= %{startup_notification_version}
-Conflicts: gir-repository < 0.6.5-9
+Conflicts:	gir-repository < 0.6.5-9
 
 %description -n %{libname}
 libwnck is Window Navigator Construction Kit, i.e. a library to use
 for writing pagers and taskslists and stuff.
 
-%package -n %{libnamedev}
-Summary:	Static libraries, include files for libwnck
+%package -n %{develname}
+Summary:	Development libraries, include files for libwnck
 Group:		Development/GNOME and GTK+
 Provides:	%{name}-devel = %{version}-%{release}
-Provides:	%{name}-%{api_version}-devel = %{version}-%{release}
+Provides:	%{name}-%{api}-devel = %{version}-%{release}
 Requires:	%{libname} = %{version}
-Requires:	gtk+2-devel >= 2.1
-Requires:	startup-notification-devel >= %{startup_notification_version}
-Conflicts:	%mklibname -d wnck-1_ 4
-Conflicts:	%mklibname -d wnck-1_ 16
-Conflicts:	%mklibname -d wnck-1_ 18
-Obsoletes:	%mklibname -d wnck-1_ 22
-Conflicts: gir-repository < 0.6.5-9
+Conflicts:	gir-repository < 0.6.5-9
 
-%description -n %{libnamedev}
+%description -n %{develname}
 libwnck is Window Navigator Construction Kit, i.e. a library to use
 for writing pagers and taskslists and stuff.
 
@@ -66,41 +53,32 @@ for writing pagers and taskslists and stuff.
 #autoconf
 
 %build
-
-%configure2_5x
+%configure2_5x \
+	--disable-static
 
 %make 
 
 %install
-rm -rf %{buildroot}
-
 %makeinstall_std
-rm -rf %buildroot%_datadir/locale/{io,be@latin,bn_IN,si,uz@cyrillic}
-%{find_lang} %{name}
+rm -rf %{buildroot}%{_datadir}/locale/{io,be@latin,bn_IN,si,uz@cyrillic}
+%find_lang %{name}
 
-rm -f %buildroot%{_libdir}/*.la
-
-%clean
-rm -rf %{buildroot}
+rm -f %{buildroot}%{_libdir}/*.la
 
 %files -f %{name}.lang
-%defattr(-,root,root)
 %doc README AUTHORS
-%_bindir/wnckprop
-%_bindir/wnck-urgency-monitor
+%{_bindir}/wnckprop
+%{_bindir}/wnck-urgency-monitor
 
 %files -n %{libname}
-%defattr(-,root,root)
-%{_libdir}/libwnck-%{api_version}.so.%{lib_major}*
-%_libdir/girepository-1.0/Wnck-1.0.typelib
+%{_libdir}/libwnck-%{api}.so.%{major}*
+%{_libdir}/girepository-1.0/Wnck-1.0.typelib
 
-%files -n %{libnamedev}
-%defattr(-,root,root)
+%files -n %{develname}
 %doc ChangeLog
-%doc %_datadir/gtk-doc/html/libwnck
+%doc %{_datadir}/gtk-doc/html/libwnck
 %{_includedir}/*
 %{_libdir}/*.so
-%{_libdir}/*.a
 %{_libdir}/pkgconfig/*
-%_datadir/gir-1.0/Wnck-1.0.gir
+%{_datadir}/gir-1.0/Wnck-1.0.gir
 
