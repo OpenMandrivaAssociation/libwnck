@@ -11,7 +11,7 @@ Release:	1
 License:	LGPLv2+
 URL:		http://www.gnome.org/
 Group:		System/Libraries
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/2.31/%{name}-%{version}.tar.xz
 Patch:		libwnck-2.27.4-linking.patch
 
 BuildRequires:	intltool
