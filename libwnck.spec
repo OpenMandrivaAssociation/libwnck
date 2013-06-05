@@ -3,24 +3,23 @@
 %define libname %mklibname wnck- %{api} %{major}
 %define develname %mklibname -d wnck- %{api}
 
-Epoch: 1
+Summary:	Libwnck is Window Navigator Construction Kit
+Name:		libwnck
+Version:	2.31.0
+Epoch:		1
+Release:	1
+License:	LGPLv2+
+URL:		http://www.gnome.org/
+Group:		System/Libraries
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
+Patch:		libwnck-2.27.4-linking.patch
 
-Summary: Libwnck is Window Navigator Construction Kit
-Name: libwnck
-Version: 2.30.7
-Release: 8
-License: LGPLv2+
-URL: http://www.gnome.org/
-Group: System/Libraries
-Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
-Patch: libwnck-2.27.4-linking.patch
-
-BuildRequires: intltool
-BuildRequires: gnome-common
-BuildRequires: gtk-doc
-BuildRequires: pkgconfig(gobject-introspection-1.0)
-BuildRequires: pkgconfig(gtk+-2.0)
-BuildRequires: pkgconfig(libstartup-notification-1.0)
+BuildRequires:	intltool
+BuildRequires:	gnome-common
+BuildRequires:	gtk-doc
+BuildRequires:	pkgconfig(gobject-introspection-1.0)
+BuildRequires:	pkgconfig(gtk+-2.0)
+BuildRequires:	pkgconfig(libstartup-notification-1.0)
 
 %description
 libwnck is Window Navigator Construction Kit, i.e. a library to use
