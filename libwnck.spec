@@ -31,7 +31,7 @@ for writing pagers and taskslists and stuff.
 %package -n %{libname}
 Summary:	%{summary}
 Group:		%{group}
-Requires:	%{name} >= %{version}-%{release}
+Requires:	%{name} >= %{EVRD}
 Obsoletes:	%{_lib}wnck-1_22 < 1:2.31.0-3
 
 %description -n %{libname}
@@ -49,9 +49,9 @@ GObject Introspection interface description for %{name}.
 %package -n %{devname}
 Summary:	Development libraries, include files for libwnck
 Group:		Development/GNOME and GTK+
-Provides:	%{name}%{api}-devel = %{version}-%{release}
-Requires:	%{libname} = %{version}-%{release}
-Requires:	%{girname} = %{version}-%{release}
+Provides:	%{name}%{api}-devel = %{EVRD}
+Requires:	%{libname} = %{EVRD}
+Requires:	%{girname} = %{EVRD}
 Obsoletes:	%{_lib}wnck-1-devel < 1:2.31.0-3
 
 %description -n %{devname}
