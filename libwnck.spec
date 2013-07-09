@@ -31,7 +31,7 @@ for writing pagers and taskslists and stuff.
 %package -n %{libname}
 Summary:	%{summary}
 Group:		%{group}
-Requires:	%{name} >= %{EVRD}
+Suggests:	%{name} >= %{EVRD}
 Obsoletes:	%{_lib}wnck-1_22 < 1:2.31.0-3
 
 %description -n %{libname}
