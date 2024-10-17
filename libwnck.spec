@@ -14,7 +14,7 @@ Version:	2.31.0
 Release:	15
 License:	LGPLv2+
 Group:		System/Libraries
-Url:		http://www.gnome.org/
+Url:		https://www.gnome.org/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/libwnck/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	gnome-common
