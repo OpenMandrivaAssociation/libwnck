@@ -17,6 +17,11 @@ Group:		System/Libraries
 Url:		https://www.gnome.org/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/libwnck/%{url_ver}/%{name}-%{version}.tar.xz
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	gnome-common
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
